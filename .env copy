@@ -1,0 +1,22 @@
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+# The following `prisma+postgres` URL is similar to the URL produced by running a local Prisma Postgres 
+# server with the `prisma dev` CLI command, when not choosing any non-default ports or settings. The API key, unlike the 
+# one found in a remote Prisma Postgres URL, does not contain any sensitive information.
+DATABASE_URL="mysql://root:rifky@localhost:3306/hackaton"
+PORT=4000
+ACCESS_TOKEN_SECRET=rifky
+ACCESS_TOKEN_TTL=1d
+REFRESH_TOKEN_SECRET=rifky
+REFRESH_TOKEN_TTL=7d
+COOKIE_DOMAIN=localhost
+NODE_ENV=development
+CORS_ORIGIN=http://localhost:3000
+LUNOS_API_KEY=sk-7f0f37e1b01557eec0e523c68340ddbb0e3695cbec6eb85f
+LUNOS_API_URL=https://api.lunos.tech/v1
+UNLI_API_KEY=sk-y1hoS0Un5MUJITfD_AgbA0km5FLA3CFDzG7-8fPv4bNMYodRYcnxwmG84_J7oM6T
+UNLI_API_URL=https://api.unli.dev/v1
