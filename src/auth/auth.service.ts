@@ -147,6 +147,7 @@ export class AuthService {
         id: user.id,
         email: user.email,
         created_at: user.created_at,
+        name: user.name,
       },
     };
   }
