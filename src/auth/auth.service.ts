@@ -14,6 +14,7 @@ import {
   accessCookieOptions,
   refreshCookieOptions,
 } from './auth.constants';
+import axios from 'axios';
 interface JwtPayload {
   sub: number;
   email?: string;
@@ -140,6 +141,39 @@ export class AuthService {
         password_hash: hashedPassword,
       },
     });
+    try {
+      await axios.post(
+        'https://api.mailry.co/ext/inbox/send',
+        {
+          emailId: process.env.MAILRY_SENDER_ID, // ID pengirim Mailry
+          to: user.email, // Email user baru
+          subject: 'Registrasi Berhasil',
+          htmlBody: `
+  <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border:1px solid #f2f2f2; border-radius: 8px; padding: 32px 28px 24px 28px; background: #fff;">
+    <h2 style="color: #0099ff; margin-top: 0;">🎉 Selamat Datang, ${user.name}!</h2>
+    <p style="font-size: 15px; color: #222;">Akun kamu di <b>Garuda Apps</b> sudah berhasil dibuat.</p>
+    <p style="font-size: 15px; color: #222;">
+      Silakan login untuk mulai menggunakan semua fitur kami. Jika kamu tidak merasa membuat akun ini, abaikan saja email ini.
+    </p>
+    <div style="margin: 24px 0;">
+      <a href="" style="background:#0099ff;color:#fff;padding:12px 24px;border-radius:4px;text-decoration:none;font-weight:bold;display:inline-block;">Login Sekarang</a>
+    </div>
+    <p style="font-size:13px;color:#888;margin-bottom:0;">Salam hangat,<br/>Tim NamaApp</p>
+  </div>
+`,
+          plainBody: `Selamat datang, ${user.name}! Akun kamu sudah aktif.`,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.MAILRY_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+    } catch (err) {
+      // Logging aja, response tetap success, user tetap ke-register
+      console.error('Gagal kirim email konfirmasi:', err?.message);
+    }
 
     return {
       message: 'Register successful',

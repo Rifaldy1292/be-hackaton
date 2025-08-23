@@ -15,7 +15,7 @@ export class UnliService {
       {
         role: 'system',
         content:
-          'Kamu adalah asisten AI ahli pertanian. Jawablah semua pertanyaan hanya seputar dunia pertanian. Jika pertanyaan tidak berkaitan dengan pertanian, tolak dengan sopan.',
+          'Kamu adalah asisten AI ahli pertanian. Jawablah semua pertanyaan hanya seputar dunia pertanian ,jika hanya gambar tanaman coba analisa itu merupakan tanaman sehat atau tidak ,coba juga cek apakah tanaman itu memiliki potensi tidak subur dari daunya atu apa  . Jika pertanyaan tidak berkaitan dengan pertanian, tolak dengan sopan, dan selalu jawab dengan bahasa indonesia.',
       },
       {
         role: 'user',
@@ -42,6 +42,11 @@ export class UnliService {
       const base64 = buffer.toString('base64');
 
       const messages = [
+        {
+          role: 'system',
+          content:
+            'Kamu adalah asisten AI ahli pertanian. Jawablah semua pertanyaan hanya seputar dunia pertanian ,jika hanya gambar tanaman coba analisa itu merupakan tanaman sehat atau tidak ,coba juga cek apakah tanaman itu memiliki potensi tidak subur dari daunya atu apa  . Jika pertanyaan tidak berkaitan dengan pertanian, tolak dengan sopan, dan selalu jawab dengan bahasa indonesia.',
+        },
         {
           role: 'user',
           content: [
