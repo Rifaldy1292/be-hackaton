@@ -145,8 +145,8 @@ export class AuthService {
       await axios.post(
         'https://api.mailry.co/ext/inbox/send',
         {
-          emailId: process.env.MAILRY_SENDER_ID, // ID pengirim Mailry
-          to: user.email, // Email user baru
+          emailId: process.env.MAILRY_SENDER_ID,
+          to: user.email,
           subject: 'Registrasi Berhasil',
           htmlBody: `
   <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; border:1px solid #f2f2f2; border-radius: 8px; padding: 32px 28px 24px 28px; background: #fff;">
@@ -158,7 +158,7 @@ export class AuthService {
     <div style="margin: 24px 0;">
       <a href="" style="background:#0099ff;color:#fff;padding:12px 24px;border-radius:4px;text-decoration:none;font-weight:bold;display:inline-block;">Login Sekarang</a>
     </div>
-    <p style="font-size:13px;color:#888;margin-bottom:0;">Salam hangat,<br/>Tim NamaApp</p>
+    <p style="font-size:13px;color:#888;margin-bottom:0;">Salam hangat,<br/>Tim Garuda Apps</p>
   </div>
 `,
           plainBody: `Selamat datang, ${user.name}! Akun kamu sudah aktif.`,
