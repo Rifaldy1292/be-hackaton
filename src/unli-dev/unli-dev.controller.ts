@@ -50,10 +50,6 @@ export class UnliDevController {
     @UploadedFile() file: Express.Multer.File,
     @Body('prompt') prompt: string,
   ) {
-    // Di sini kamu bisa:
-    // - Ambil file.path / file.buffer (kalau pakai storage: memoryStorage)
-    // - Convert ke base64
-    // - Kirim ke service AI kamu
     return this.unliDevService.analyzeImage(file, prompt);
   }
 }
