@@ -6,7 +6,7 @@ async function bootstrap() {
 
   app.use(cookieParser());
   app.enableCors({
-    origin: 'http://tani-ai.vercel.app || https://tani-ai.vercel.app ',
+    origin: ['http://tani-ai.vercel.app', 'https://tani-ai.vercel.app'],
     credentials: true,
   });
 
